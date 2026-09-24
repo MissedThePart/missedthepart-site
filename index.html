@@ -644,7 +644,7 @@ dialog.lb.short{max-width:min(420px,92vw)}
   <section class="block second" id="max">
     <div class="wrap head rv">
       <div><span class="cap">The second channel</span><h2>Max <span class="y">Charlebois</span></h2></div>
-      <div class="tools"><button class="arrow" data-rail="r-second" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 5l-7 7 7 7"/></svg></button><button class="arrow" data-rail="r-second" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg></button><a class="btn sm" href="https://www.youtube.com/@maxcharlebois" target="_blank" rel="noopener">Visit channel</a></div>
+      <div class="tools"><button class="arrow" data-rail="r-second" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 5l-7 7 7 7"/></svg></button><button class="arrow" data-rail="r-second" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg></button><a class="btn sm" href="https://www.youtube.com/@MaxCharlebois1" target="_blank" rel="noopener">Visit channel</a></div>
     </div>
     <div class="wrap rv" style="margin-top:-16px;margin-bottom:24px">
       <p style="margin:0 0 12px;color:var(--muted);max-width:60ch">Comic history, Spider-Man deep dives and MCU theories.</p>
@@ -714,7 +714,7 @@ dialog.lb.short{max-width:min(420px,92vw)}
       <a href="https://www.facebook.com/MissedThePart001" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.patreon.com/cw/MissedThePart" target="_blank" rel="noopener">Patreon</a>
       <a href="https://ko-fi.com/missedthepart" target="_blank" rel="noopener">Ko-fi</a>
-      <a href="https://www.youtube.com/@maxcharlebois" target="_blank" rel="noopener">Max Charlebois</a>
+      <a href="https://www.youtube.com/@MaxCharlebois1" target="_blank" rel="noopener">Max Charlebois</a>
       <a href="https://maxiumcomix.com" target="_blank" rel="noopener">Maxium Comix</a>
     </div>
     <small>© <span id="yr">2026</span> MissedThePart. Fan commentary and original art. All characters belong to their respective owners.</small>
@@ -728,7 +728,7 @@ dialog.lb.short{max-width:min(420px,92vw)}
 
 <script>
 (function(){
-const CH={main:'UCFJzRMBPBxbf141OuZlkRKA',second:'UCtc9m9ce8jb3DMJnBG3vnOg'};
+const CH={main:'UCFJzRMBPBxbf141OuZlkRKA',second:'UC5wkcEIEdG4cX3jFH5f1Dbg'};
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 $('#yr').textContent=new Date().getFullYear();
@@ -791,7 +791,7 @@ function cardHTML(v,kind){const base='https://i.ytimg.com/vi/'+v.id+'/';
   const chain=kind==='short'?['oar2.jpg','oardefault.jpg','hq720_2.jpg','hqdefault.jpg','mqdefault.jpg']:['maxresdefault.jpg','sddefault.jpg','hqdefault.jpg','mqdefault.jpg'];
   const b=kind==='member'?'<span class="badge lock">Members</span>':(Date.now()-new Date(v.date)<6048e5?'<span class="badge">New</span>':'');
   return `<button class="card" data-id="${esc(v.id)}" data-kind="${kind}"><div class="tilt"><div class="thumb"><img loading="lazy" src="${base+chain[0]}" data-alts="${chain.slice(1).map(c=>base+c).join('|')}" onerror="mtpThumb(this)" alt="">${b}<span class="pb"><i class="play"></i></span><span class="glare"></span></div><h3>${esc(v.title)}</h3><time>${fmt(new Date(v.date))}</time></div></button>`}
-function fallbackHTML(rail){const pl=rail.dataset.feed+CH[rail.dataset.ch].slice(2);const url=rail.dataset.ch==='second'?'https://www.youtube.com/@maxcharlebois':'https://www.youtube.com/@MissedThePart'+(rail.dataset.kind==='short'?'/shorts':'/videos');
+function fallbackHTML(rail){const pl=rail.dataset.feed+CH[rail.dataset.ch].slice(2);const url=rail.dataset.ch==='second'?'https://www.youtube.com/@MaxCharlebois1':'https://www.youtube.com/@MissedThePart'+(rail.dataset.kind==='short'?'/shorts':'/videos');
   return `<div class="fallback"><div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/videoseries?list=${pl}" title="Playlist" allow="autoplay; encrypted-media; picture-in-picture; fullscreen"></iframe></div><div class="note"><strong>Watch the playlist</strong><p>Use the playlist button in the player to flip through every upload, or head straight to YouTube.</p><a class="btn sm" href="${url}" target="_blank" rel="noopener">Open on YouTube</a></div></div>`}
 async function fill(rail){rail.innerHTML=Array.from({length:6},()=>'<div class="card skel"><div class="thumb"></div><h3></h3></div>').join('');
   try{const since=new Date(rail.dataset.since);let items=(await feed(rail.dataset.feed,rail.dataset.ch)).filter(v=>v.id&&new Date(v.date)>=since);
